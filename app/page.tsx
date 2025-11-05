@@ -28,8 +28,9 @@ import { BsBoxes } from "react-icons/bs"; // fallback icon
 import { RiBootstrapLine } from "react-icons/ri";
 import { SiSelenium } from "react-icons/si";
 import { SiElementor } from "react-icons/si";
-// or for a generic magnifier:
-// import { FiSearch } from "react-icons/fi";
+import { BsPaypal } from "react-icons/bs";
+import { GrLanguage } from "react-icons/gr";
+import { SiHostinger } from "react-icons/si";
 
 export default function HomePage() {
   const techIcons: Record<string, ReactElement> = {
@@ -51,6 +52,23 @@ export default function HomePage() {
     Selenium: <SiSelenium size={18} color="#ccc" />,
     Analytics: <SiGoogleanalytics size={18} color="#fbbc05" />,
     Elementor: <SiElementor size={18} color="#ccc" />,
+    "Django REST Framework": <SiDjango size={18} color="#092e20" />,
+    PayPal: <BsPaypal size={18} color="#0038ba" />,
+    Multilingual: <GrLanguage size={18} color="#ccc" />,
+    "Meta Pixel": <FaMeta size={18} color="#1877f2" />,
+    "Google Analytics": <SiGoogleanalytics size={18} color="#fbbc05" />,
+    Montonio: (
+      <Image
+        src="/images/montonio.png"
+        alt="Montonio"
+        width={22}
+        height={22}
+        className="object-contain"
+      />
+    ),
+    Docker: <SiDocker size={18} color="#2496ed" />,
+    Nginx: <SiNginx size={18} color="#009639" />,
+    "Hostinger / VPS": <SiHostinger size={18} color="#8c4bff" />,
   };
 
   return (
@@ -74,6 +92,11 @@ export default function HomePage() {
               </strong>
               , and SEO.
             </p>
+            <p className="text-neutral-400 text-sm">
+              Seeking junior developer opportunities, freelance projects or
+              internships.
+            </p>
+
             <div className="flex flex-wrap gap-3">
               <a href="#projects" className="btn-primary">
                 View Projects
@@ -174,18 +197,20 @@ export default function HomePage() {
               <h3 className="text-sm uppercase tracking-wider text-neutral-400 mb-3">
                 Payments Integrations
               </h3>
+
               <div className="flex flex-wrap justify-center gap-3">
-                {[{ Icon: SiStripe, name: "Stripe", color: "#635bff" }].map(
-                  ({ Icon, name, color }) => (
-                    <span
-                      key={name}
-                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#111] border border-neutral-800 text-sm text-neutral-300 hover:border-pink-500 transition-all"
-                    >
-                      <Icon size={18} style={{ color }} />
-                      {name}
-                    </span>
-                  )
-                )}
+                {[
+                  { Icon: SiStripe, name: "Stripe", color: "#635bff" },
+                  { Icon: BsPaypal, name: "PayPal", color: "#0038ba" },
+                ].map(({ Icon, name, color }) => (
+                  <span
+                    key={name}
+                    className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#111] border border-neutral-800 text-sm text-neutral-300 hover:border-pink-500 transition-all"
+                  >
+                    <Icon size={18} style={{ color }} />
+                    {name}
+                  </span>
+                ))}
                 <span
                   key="Montonio"
                   className="flex items-center gap-2 px-3 py-2 rounded-full bg-[#111] border border-neutral-800 text-sm text-neutral-300 hover:border-pink-500 transition-all"
@@ -243,7 +268,7 @@ export default function HomePage() {
                   { Icon: SiNginx, name: "Nginx", color: "#009639" },
                   { Icon: SiVercel, name: "Vercel", color: "#fff" },
                   {
-                    Icon: SiNodedotjs,
+                    Icon: SiHostinger,
                     name: "Hostinger / VPS",
                     color: "#8c4bff",
                   },
@@ -279,6 +304,11 @@ export default function HomePage() {
               const isReversed = idx % 2 === 1;
               const showYear =
                 idx === 0 || ProjectList[idx - 1].year !== p.year;
+              const isTallContent =
+                p.title.includes("3DModernFantazy") ||
+                p.title.includes("AutoLaiškai") ||
+                p.title.includes("Interactive Gifting App") ||
+                p.title.includes("WordPress");
               return (
                 <div key={p.title}>
                   {showYear && (
@@ -294,7 +324,14 @@ export default function HomePage() {
                     }`}
                   >
                     {/* IMAGE block — 60% of row */}
-                    <div className="relative h-64 md:h-[400px] lg:h-[480px] md:[flex:0_0_60%] rounded-2xl overflow-hidden group">
+                    {/* <div className="relative h-64 md:h-[400px] lg:h-[480px] md:[flex:0_0_60%] rounded-2xl overflow-hidden group"> */}
+                    <div
+                      className={`relative h-64 md:[flex:0_0_60%] rounded-2xl overflow-hidden group ${
+                        isTallContent
+                          ? "md:h-auto"
+                          : "md:h-[400px] lg:h-[480px]"
+                      }`}
+                    >
                       {p.live || p.repo ? (
                         <a
                           href={p.live || p.repo}
@@ -476,11 +513,31 @@ export default function HomePage() {
                 Built and deployed multiple real projects with modern stacks.
               </li>
               <li>
-                Practical knowledge of hosting: Vercel, VPS, and shared hosting.
+                Recent launch:{" "}
+                <a
+                  href="https://vibobox.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold hover:text-neutral-100 transition-colors"
+                >
+                  Vibobox.com
+                </a>{" "}
+                (November 2025).
               </li>
               <li>
-                Comfortable integrating Stripe and working with NoSQL/SQL
-                databases.
+                Practical knowledge of hosting: Vercel, Hostinger/VPS, Koyeb and
+                shared hosting.
+              </li>
+              <li>
+                Comfortable integrating Stripe, Paypal, Montonio and working
+                with NoSQL/SQL databases.
+              </li>
+              <li>
+                Completed Codeacademy's "E-commerce using Artificial
+                Intelligence" course — hands-on experience with WooCommerce,
+                WordPress, Elementor, and SEO optimization. This project
+                provided deeper insight into e-commerce architecture and common
+                structural patterns.
               </li>
             </ul>
           </div>
@@ -492,8 +549,8 @@ export default function HomePage() {
         <div className="container-prose">
           <h2 className="mb-4 text-3xl font-semibold">Contact</h2>
           <p className="text-neutral-300 mb-6">
-            Open to junior dev roles, internships, or freelancing. The fastest
-            way to reach me:
+            Open to junior dev opportunities internships, or freelancing. The
+            fastest way to reach me:
           </p>
           <div className="flex flex-wrap gap-3">
             <Link

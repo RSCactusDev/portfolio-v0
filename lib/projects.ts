@@ -13,13 +13,27 @@ export const ProjectList: Project[] = [
   {
     title: "ViboBox – Interactive Gifting App",
     year: 2025,
-    description:
-      "Next.js + TypeScript + MongoDB app with Stripe payments, countdowns, and mini-games (memory, scratch-off).",
-    stack: ["Next.js", "TypeScript", "MongoDB", "Stripe", "Vercel/VPS"],
+    description: [
+      "Next.js e-commerce app selling physical QR code gift boxes with digital interactive coupon experiences.",
+      "Recipients unlock coupons by waiting through countdowns or completing memory games, then scratch to reveal the final gift.",
+      "Integrated Replicate AI API for custom gift image generation.",
+      "Stripe payments with webhook-based invoice generation and automated email delivery.",
+      "Includes blog system for SEO optimization.",
+      "Deployed on Hostinger VPS with Docker containerization and Nginx reverse proxy.",
+    ],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "Stripe",
+      "Docker",
+      "Nginx",
+      "Hostinger / VPS",
+    ],
     live: "https://vibobox.com",
     repo: "",
     image: "/images/vibobox.png",
-    imageAlt: "ViboBox app preview",
+    imageAlt: "ViboBox interactive gift coupon reveal",
   },
 
   {
@@ -29,6 +43,7 @@ export const ProjectList: Project[] = [
       "Final project for the CodeAcademy course — a multilingual e-commerce website built with WordPress and Elementor.",
       "Implemented responsive design, integrated Google Analytics, and applied SEO best practices with Yoast SEO.",
       "Optimized site structure for performance, accessibility, and multilingual usability.",
+      /* "This project provided deeper insight into e-commerce architecture and common structural patterns.", */
     ],
     stack: [
       "WordPress",
