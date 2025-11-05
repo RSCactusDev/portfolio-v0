@@ -1,26 +1,104 @@
 @import "tailwindcss";
 
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+@theme {
+  --color-primary: #7c3aed;
+  --color-accent: #14b8a6;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+  --color-primary: #7c3aed;
+  --color-accent: #14b8a6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-neutral-950 text-neutral-100 antialiased;
+}
+
+.container-prose {
+  @apply max-w-5xl mx-auto px-4;
+}
+
+.section {
+  @apply py-20;
+}
+
+.card {
+  @apply rounded-2xl border border-neutral-800/70 bg-neutral-900/50 backdrop-blur-sm shadow-lg;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition;
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition bg-primary/80 hover:bg-primary text-white;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition bg-neutral-800 hover:bg-neutral-700;
+}
+
+.badge {
+  @apply inline-flex items-center rounded-full border border-neutral-700 px-3 py-1 text-xs text-neutral-300;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary via-fuchsia-500 to-accent bg-clip-text text-transparent;
+}
+
+
+@layer utilities {
+  .card:hover .project-img-zoom {
+    transform: scale(1.03);
+  }
+}
+
+
+.glow-border-thin {
+  position: relative;
+  border-radius: 1rem;
+  /* match rounded-2xl */
+  background: linear-gradient(90deg, #a855f7, #ec4899, #06b6d4);
+  padding: 2px;
+  /* controls border thickness */
+}
+
+.glow-border-thin>* {
+  background: #111111;
+  /* your dark background inside */
+  border-radius: calc(1rem - 2px);
+}
+
+/* Optional subtle glow outside */
+.glow-border-thin::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  filter: blur(10px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.glow-no-left {
+  border-left: none !important;
+  padding-left: 0 !important;
+}
+
+.glow-no-right {
+  border-right: none !important;
+  padding-right: 0 !important;
 }
