@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://example.com"), // replace on deploy
+  metadataBase: new URL("https://skalisius.dev"),
   title: {
-    default: "Rimvydas Skališius – Full‑Stack Developer",
+    default: "Rimvydas Skalisius – Full‑Stack Developer",
     template: "%s | Rimvydas Skališius",
   },
   description:
@@ -61,10 +62,14 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <main>{children}</main>
+        <main>
+          {children}
+          <SpeedInsights />
+        </main>
+
         <footer className="border-t border-neutral-800/70">
           <div className="container-prose py-10 text-sm text-neutral-400">
-            © {new Date().getFullYear()} Rimvydas Skališius. Built with Next.js
+            © {new Date().getFullYear()} Rimvydas Skalisius. Built with Next.js
             & Tailwind.
           </div>
         </footer>
