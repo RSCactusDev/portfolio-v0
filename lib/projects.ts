@@ -16,10 +16,10 @@ export const ProjectList: Project[] = [
     description: [
       "Next.js e-commerce app selling physical QR code gift boxes with digital interactive coupon experiences.",
       "Recipients unlock coupons by waiting through countdowns or completing memory games, then scratch to reveal the final gift.",
-      "Integrated Replicate AI API for custom gift image generation.",
+      "Integrated Replicate AI API for custom scratch gift image generation.",
       "Stripe payments with webhook-based invoice generation and automated email delivery.",
       "Includes blog system for SEO optimization.",
-      "Deployed on Hostinger VPS with Docker containerization and Nginx reverse proxy.",
+      "Deployed on Hostinger VPS with Docker and Traefik reverse proxy.",
     ],
     stack: [
       "Next.js",
