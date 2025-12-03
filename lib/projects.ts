@@ -27,7 +27,6 @@ export const ProjectList: Project[] = [
       "MongoDB",
       "Stripe",
       "Docker",
-      "Nginx",
       "Hostinger / VPS",
     ],
     live: "https://vibobox.com",
